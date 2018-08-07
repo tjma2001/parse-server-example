@@ -5,21 +5,21 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mamaso/parse-server-example"
+    "url": "https://github.com/tjma2001/parse-server-example"
   },
   "license": "MIT",
   "dependencies": {
-    "buffer-shims": "^1.0.0",
-    "express": "^4.13.4",
-    "parse-server": "2.3.x",
-    "parse-dashboard": "^1.0.11",
-    "parse-server-azure-config": "^1.0.0"
+    "buffer-shims": "1.0.0",
+    "express": "4.16.3",
+    "parse-server": "2.8.2",
+    "parse-dashboard": "1.2.0",
+    "parse-server-azure-config": "1.0.0"
   },
   "scripts": {
     "start": "node index.js",
     "postinstall": "git update-index --skip-worktree local.js & exit 0"
   },
   "engines": {
-    "node": "6.9.4"
+    "node": ">=6.9.4"
   }
 }
