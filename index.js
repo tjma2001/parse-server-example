@@ -16,6 +16,7 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.get('/ping', (req, res) => res.status(200).send('pong'));
 app.use('/public', express.static(__dirname + '/public'));
 app.use('/parse', new ParseServer(config.server));
 app.use('/parse-dashboard', ParseDashboard(config.dashboard, true));
