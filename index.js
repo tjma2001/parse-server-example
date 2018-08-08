@@ -10,6 +10,7 @@ var config = parseServerConfig(__dirname);
 
 var app = express();
 
+// CORS please
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
