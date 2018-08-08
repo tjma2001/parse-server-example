@@ -3,7 +3,7 @@ module.exports = {
     databaseURI: process.env.MONGO_URL,
     appId: 'rai',
     appName: 'RAI',
-    masterKey: process.env.MASTERKEY || 'masterkey',
+    masterKey: process.env.MASTERKEY,
     allowClientClassCreation: false,
     enableAnonymousUsers: false,
     revokeSessionOnPasswordReset: true,
