@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@parse/fs-files-adapter@1.0.1":
+"@parse/fs-files-adapter@1.0.1", "@parse/fs-files-adapter@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@parse/fs-files-adapter/-/fs-files-adapter-1.0.1.tgz#768f784083e8f9673ef463e199a1be5f837b4165"
 
@@ -1638,7 +1638,7 @@ parse-server-azure-push@^1.0.2:
     form-data "1.0.0-rc4"
     parse "^1.7.1"
 
-parse-server-azure-storage@^1.0.3:
+parse-server-azure-storage@^1.0.3, parse-server-azure-storage@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/parse-server-azure-storage/-/parse-server-azure-storage-1.1.0.tgz#f595e2a5613ec08fa37bb92dd5ab70fd79ff349b"
   dependencies:

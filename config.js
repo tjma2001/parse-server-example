@@ -1,9 +1,12 @@
+var AzureStorageAdapter = require('parse-server-azure-storage').AzureStorageAdapter;
+
 module.exports = {
   server: {
-    databaseURI: process.env.MONGO_URL,
     appId: 'rai',
-    appName: 'RAI',
     masterKey: process.env.MASTERKEY,
+    databaseURI: process.env.MONGO_URL,
+    serverURL: 'https://scottyrai.azurewebsites.net/parse',
+    appName: 'RAI',
     allowClientClassCreation: false,
     enableAnonymousUsers: false,
     revokeSessionOnPasswordReset: true,
@@ -11,18 +14,14 @@ module.exports = {
       duration: 5,
       threshold: 3
     },
-    serverURL: 'https://scottyrai.azurewebsites.net/parse'
+
+    // filesAdapter: new AzureStorageAdapter(
+    //   'account',
+    //   'container',
+    //   'options'
+    // )
   },
-  dashboard: {
-    // apps:[ 
-    //   { 
-    //     appId: 'RAI Prod',
-    //     serverURL: process.env.SERVER_URL,
-    //     masterKey: process.env.MASTERKEY || 'masterkey',
-    //     appName: 'scottyrai' 
-    //   } 
-    // ],
-  },
+  dashboard: {},
   storage: {},
   push: {}
 }
