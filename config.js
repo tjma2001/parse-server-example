@@ -14,12 +14,18 @@ module.exports = {
       duration: 5,
       threshold: 3
     },
+    liveQuery: {
+      classNames: ['Receipt']
+    },
 
-    // filesAdapter: new AzureStorageAdapter(
-    //   'account',
-    //   'container',
-    //   'options'
-    // )
+    filesAdapter: new AzureStorageAdapter(
+      process.env.ACCOUNT_NAME,
+      process.env.CONTAINER,
+      {
+        accessKey: process.env.ACCESS_KEY,
+        directAccess: false
+      }
+    )
   },
   dashboard: {},
   storage: {},
