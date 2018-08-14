@@ -23,7 +23,7 @@ module.exports = {
       process.env.CONTAINER,
       {
         accessKey: process.env.ACCESS_KEY,
-        directAccess: true
+        directAccess: false
       }
     )
   },
