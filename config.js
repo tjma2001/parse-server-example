@@ -2,11 +2,11 @@ var AzureStorageAdapter = require('parse-server-azure-storage').AzureStorageAdap
 
 module.exports = {
   server: {
-    appId: 'rai',
+    appId: process.env.APP_ID,
     masterKey: process.env.MASTERKEY,
     databaseURI: process.env.MONGO_URL,
-    serverURL: 'https://scottyrai.azurewebsites.net/parse',
-    appName: 'RAI',
+    serverURL: process.env.SERVER_NAME,
+    appName: process.env.APP_NAME,
     allowClientClassCreation: false,
     enableAnonymousUsers: false,
     revokeSessionOnPasswordReset: true,
@@ -15,7 +15,7 @@ module.exports = {
       threshold: 3
     },
     liveQuery: {
-      classNames: ['Receipt']
+      classNames: process.env.CLASS_NAMES.split(',')
     },
 
     filesAdapter: new AzureStorageAdapter(
