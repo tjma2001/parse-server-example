@@ -1,4 +1,10 @@
- {
-  "schemaVersion" :1 ,
-  "templateId" :"node/8.12.0"
- }
+{
+  "schemaVersion": 1,
+  "dockerfileLines": [
+    "FROM tensaibankai/node:latest",
+    "RUN apt-get install -y git",
+    "COPY . .",
+    "RUN yarn install",
+    "CMD ['yarn']"
+  ]
+}
