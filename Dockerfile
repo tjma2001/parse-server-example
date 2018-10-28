@@ -4,4 +4,4 @@ RUN apt-get install -y git
 COPY . .
 RUN yarn install
 
-CMD ['yarn']
+CMD ['npm', 'start']
