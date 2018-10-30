@@ -1,11 +1,11 @@
 {
   "name": "parse-server-azure-managed",
   "version": "1.0.0",
-  "description": "Parse Server on Azure Managed Services",
+  "description": "Parse Server on captainduck",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tjma2001/parse-server-example"
+    "url": "https://github.com/tjma2001/rai-parse"
   },
   "license": "MIT",
   "dependencies": {
