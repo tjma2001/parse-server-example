@@ -30,3 +30,5 @@ node_modules
 *~
 
 local.js
+
+Dockerfile
