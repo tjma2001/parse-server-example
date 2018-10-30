@@ -28,7 +28,14 @@ module.exports = {
     // )
   },
   dashboard: {
-    serverURL: process.env.SERVER_NAME
+    apps: [
+      {
+        serverURL: 'http://localhost/parse',
+        appId: process.env.APP_ID,
+        masterkey: process.env.MASTERKEY,
+        appName: process.env.APP_NAME
+      }
+    ]
   },
   storage: {},
   push: {}
