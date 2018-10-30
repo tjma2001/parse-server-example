@@ -1,8 +1,13 @@
 FROM tensaibankai/node:8.12
 
 RUN apt-get install -y git
-COPY . .
+
+WORKDIR /usr/app
+COPY package.json .
+COPY package-lock.json .
+COPY yarn.lock .
 RUN yarn install
-RUN which npm
+
+COPY . .
 
 CMD ["/usr/local/bin/npm", "start"]
