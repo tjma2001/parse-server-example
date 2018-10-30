@@ -3,7 +3,7 @@ var ParseServer = require('parse-server').ParseServer;
 var ParseDashboard = require('parse-dashboard');
 var parseServerConfig = require('parse-server-azure-config');
 var url = require('url')
-const fs = require('fs')
+const path = require('path')
 
 var config = parseServerConfig(__dirname)
 
@@ -19,7 +19,7 @@ app.use(function (req, res, next) {
 })
 
 app.get('/ping', (req, res) => res.status(200).send('pong'))
-app.use('/public', express.static(fs.path.join(__dirname, '/public')))
+app.use('/public', express.static(path.join(__dirname, '/public')))
 app.use('/parse', new ParseServer(config.server))
 app.use('/parse-dashboard', ParseDashboard(config.dashboard, true))
 
