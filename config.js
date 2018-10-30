@@ -27,7 +27,9 @@ module.exports = {
     //   }
     // )
   },
-  dashboard: {},
+  dashboard: {
+    serverURL: process.env.SERVER_NAME
+  },
   storage: {},
   push: {}
 }
