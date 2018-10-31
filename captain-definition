@@ -9,6 +9,8 @@
     "COPY ./src/yarn.lock .",
     "RUN yarn install",
     "COPY ./src/. .",
+    "EXPOSE 80",
+    "EXPOSE 1337",
     "CMD [\"/usr/local/bin/npm\", \"start\"]"
   ]
 }
