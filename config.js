@@ -5,7 +5,7 @@ module.exports = {
     appId: process.env.APP_ID,
     masterKey: process.env.MASTERKEY,
     databaseURI: process.env.MONGO_URL,
-    // serverURL: process.env.SERVER_NAME,
+    serverURL: process.env.SERVER_NAME || 'http://localhost:1337',
     appName: process.env.APP_NAME,
     allowClientClassCreation: false,
     enableAnonymousUsers: false,
