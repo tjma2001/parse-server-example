@@ -5,7 +5,7 @@ module.exports = {
     appId: process.env.APP_ID,
     masterKey: process.env.MASTERKEY,
     databaseURI: process.env.MONGO_URL,
-    serverURL: process.env.SERVER_NAME,
+    // serverURL: process.env.SERVER_NAME,
     appName: process.env.APP_NAME,
     allowClientClassCreation: false,
     enableAnonymousUsers: false,
@@ -27,16 +27,7 @@ module.exports = {
     //   }
     // )
   },
-  dashboard: {
-    apps: [
-      {
-        serverURL: 'http://localhost/parse',
-        appId: process.env.APP_ID,
-        masterkey: process.env.MASTERKEY,
-        appName: process.env.APP_NAME
-      }
-    ]
-  },
+  dashboard: {},
   storage: {},
   push: {}
 }
