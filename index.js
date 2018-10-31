@@ -21,7 +21,7 @@ app.use(function (req, res, next) {
 app.get('/ping', (req, res) => res.status(200).send('pong'))
 app.use('/public', express.static(path.join(__dirname, '/public')))
 app.use('/parse', new ParseServer(config.server))
-app.use('/parse-dashboard', ParseDashboard(config.dashboard, true))
+app.use('/parse-dashboard', ParseDashboard(config.dashboard, { allowInsecureHTTP: true }))
 
 app.listen(process.env.PORT || url.parse(config.server.serverURL).port, function () {
   console.log(`Parse Server running at ${process.env.PORT || url.parse(config.server.serverURL).port}`)
