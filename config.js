@@ -27,7 +27,9 @@ module.exports = {
     //   }
     // )
   },
-  dashboard: {},
+  dashboard: {
+    allowInsecureHTTP: true
+  },
   storage: {},
   push: {}
 }
