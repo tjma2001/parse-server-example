@@ -1,4 +1,4 @@
-// var AzureStorageAdapter = require('parse-server-azure-storage').AzureStorageAdapter;
+var AzureStorageAdapter = require('parse-server-azure-storage').AzureStorageAdapter;
 
 module.exports = {
   server: {
@@ -17,16 +17,15 @@ module.exports = {
     },
     liveQuery: {
       classNames: process.env.CLASS_NAMES.split(',')
-    }
-
-    // filesAdapter: new AzureStorageAdapter(
-    //   process.env.ACCOUNT_NAME,
-    //   process.env.CONTAINER,
-    //   {
-    //     accessKey: process.env.ACCESS_KEY,
-    //     directAccess: false
-    //   }
-    // )
+    },
+    filesAdapter: new AzureStorageAdapter(
+      process.env.ACCOUNT_NAME,
+      process.env.CONTAINER,
+      {
+        accessKey: process.env.ACCESS_KEY,
+        directAccess: false
+      }
+    )
   },
   dashboard: {
     allowInsecureHTTP: true
