@@ -31,10 +31,10 @@ app.use('/parse-dashboard',
         ],
         apps: [
           {
-            appId: 'livesign',
+            appId: process.env.APP_ID,
             masterKey: process.env.MASTERKEY,
             serverURL: process.env.SERVER_NAME,
-            appName: 'Live Sign'
+            appName: process.env.APP_ID
           }
         ],
         "useEncryptedPasswords": true
