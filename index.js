@@ -21,7 +21,11 @@ app.use(function (req, res, next) {
 
 app.get('/ping', (req, res) => res.status(200).send('pong'))
 app.use('/public', express.static(path.join(__dirname, '/public')))
-app.use('/parse', process.env.NODE_ENV === 'Development' ? new ParseServer(config.server) : new ParseServer(prodConfig.server))
+app.use('/parse', 
+  process.env.NODE_ENV === 'Development' 
+    ? new ParseServer(config.server) 
+    : new ParseServer(prodConfig.server))
+
 app.use('/parse-dashboard', 
   process.env.NODE_ENV === 'Development' 
     ? ParseDashboard(config.dashboard)
