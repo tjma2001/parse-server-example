@@ -10,7 +10,7 @@ module.exports = {
     appName: process.env.APP_NAME,
     allowClientClassCreation: false,
     enableAnonymousUsers: false,
-    revokeSessionOnPasswordReset: true,
+    revokeSessionO6PasswordReset: true,
     accountLockout: {
       duration: 5,
       threshold: 3
@@ -28,7 +28,15 @@ module.exports = {
     )
   },
   dashboard: {
-    allowInsecureHTTP: true
+    allowInsecureHTTP: true,
+    apps: [
+      {
+        appId: 'livesign',
+        masterKey: process.env.MASTERKEY,
+        serverURL: 'https://livesign-parse-server.scottybeam.me/parse',
+        appName: 'Live Sign'
+      }
+    ]
   },
   storage: {},
   push: {}
