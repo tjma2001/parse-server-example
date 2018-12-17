@@ -23,21 +23,23 @@ app.get('/ping', (req, res) => res.status(200).send('pong'))
 app.use('/public', express.static(path.join(__dirname, '/public')))
 app.use('/parse', process.env.NODE_ENV === 'Development' ? new ParseServer(config.server) : new ParseServer(prodConfig.server))
 app.use('/parse-dashboard', 
-  ParseDashboard({
-      users: [
-        { "user": "admin", "pass": "$2y$12$qlA3bedHsafFXNS/q1iIxe6Epumnkn4V9aMC8nKKvhFD60mB43VsG" }
-      ],
-      apps: [
-        {
-          appId: 'livesign',
-          masterKey: process.env.MASTERKEY,
-          serverURL: 'https://livesign-parse-server.scottybeam.me/parse',
-          appName: 'Live Sign'
-        }
-      ],
-      "useEncryptedPasswords": true
-    }, 
-    { allowInsecureHTTP: true }))
+  process.env.NODE_ENV === 'Development' 
+    ? ParseDashboard(config.dashboard)
+    : ParseDashboard({
+        users: [
+          { "user": "admin", "pass": process.env.ADMIN_PASSWORD }
+        ],
+        apps: [
+          {
+            appId: 'livesign',
+            masterKey: process.env.MASTERKEY,
+            serverURL: process.env.SERVER_NAME,
+            appName: 'Live Sign'
+          }
+        ],
+        "useEncryptedPasswords": true
+      }, 
+      { allowInsecureHTTP: true }))
 
 app.listen(process.env.PORT || url.parse(config.server.serverURL).port, function () {
   console.log(`Parse Server running at ${process.env.PORT || url.parse(config.server.serverURL).port}`)
