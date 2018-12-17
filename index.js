@@ -6,6 +6,7 @@ var url = require('url')
 const path = require('path')
 
 var config = parseServerConfig(__dirname)
+var prodConfig = require('./config.js')
 
 // Modify config as necessary before initializing parse server & dashboard
 
@@ -20,9 +21,17 @@ app.use(function (req, res, next) {
 
 app.get('/ping', (req, res) => res.status(200).send('pong'))
 app.use('/public', express.static(path.join(__dirname, '/public')))
-app.use('/parse', new ParseServer(config.server))
-console.log(config.dashboard)
-app.use('/parse-dashboard', ParseDashboard(config.dashboard, { allowInsecureHTTP: true }))
+app.use('/parse', process.env.NODE_ENV === 'Development' ? new ParseServer(config.server) : new ParseServer(prodConfig.server))
+app.use('/parse-dashboard', 
+  ParseDashboard({
+    apps: [
+      {
+        appId: 'livesign',
+        masterKey: process.env.MASTERKEY,
+        serverURL: 'https://livesign-parse-server.scottybeam.me/parse',
+        appName: 'Live Sign'
+      }
+    ]}, { allowInsecureHTTP: true }))
 
 app.listen(process.env.PORT || url.parse(config.server.serverURL).port, function () {
   console.log(`Parse Server running at ${process.env.PORT || url.parse(config.server.serverURL).port}`)
